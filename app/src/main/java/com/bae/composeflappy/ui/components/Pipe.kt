@@ -17,7 +17,7 @@ import com.bae.composeflappy.ui.theme.ComposeFlappyTheme
 fun Pipe(
     pipe: Pipe,
     pipeWidth: Dp = 80.dp,
-    gapHeight: Dp = 200.dp
+    gapHeight: Dp = 100.dp
 ) {
     // Top Pipe
     Image(
