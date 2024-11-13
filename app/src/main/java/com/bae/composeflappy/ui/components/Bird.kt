@@ -20,7 +20,10 @@ import com.bae.composeflappy.R
 import com.bae.composeflappy.ui.theme.ComposeFlappyTheme
 
 @Composable
-fun Bird(birdY: Float) {
+fun Bird(
+    birdX: Float = 100f,
+    birdY: Float
+) {
     val imageResources = listOf(
         painterResource(id = R.drawable.blue_bird_downflap),
         painterResource(id = R.drawable.blue_bird_midflap),
@@ -45,7 +48,10 @@ fun Bird(birdY: Float) {
         contentDescription = "Bird",
         modifier = Modifier
             .size(50.dp)
-            .offset(y = birdY.dp)
+            .offset(
+                x = birdX.dp,
+                y = birdY.dp
+            )
     )
 }
 
@@ -53,6 +59,9 @@ fun Bird(birdY: Float) {
 @Composable
 private fun BirdPreview() {
     ComposeFlappyTheme {
-        Bird(birdY = 0f)
+        Bird(
+            birdX = 0f,
+            birdY = 0f
+        )
     }
 }

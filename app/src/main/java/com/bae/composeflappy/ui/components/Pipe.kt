@@ -17,7 +17,7 @@ import com.bae.composeflappy.ui.theme.ComposeFlappyTheme
 fun Pipe(
     pipe: Pipe,
     pipeWidth: Dp = 80.dp,
-    gapHeight: Dp = 100.dp
+    gapHeight: Dp = 200.dp
 ) {
     // Top Pipe
     Image(
@@ -26,7 +26,7 @@ fun Pipe(
         modifier = Modifier
             .offset(
                 x = pipe.x.dp,
-                y = -(pipe.gapY.dp - (gapHeight / 2))
+                y = pipe.gapY.dp - gapHeight / 2 - 450.dp
             )
             .width(pipeWidth),
         contentScale = ContentScale.FillWidth
@@ -39,7 +39,7 @@ fun Pipe(
         modifier = Modifier
             .offset(
                 x = pipe.x.dp,
-                y = (pipe.gapY.dp + (gapHeight / 2))
+                y = pipe.gapY.dp + gapHeight / 2
             )
             .width(pipeWidth),
         contentScale = ContentScale.FillWidth
@@ -48,7 +48,8 @@ fun Pipe(
 
 data class Pipe(
     val x: Float,
-    val gapY: Float // Score Area
+    val gapY: Float, // Score Area
+    var passed: Boolean = false
 )
 
 @Preview
